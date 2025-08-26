@@ -141,3 +141,14 @@ select *from pedidos p
 select * from cartas_pedidos cp 
 
 select * from pagamentos p 
+
+alter table endereco
+add constraint chk_uf_length check (char_length(uf) = 2),
+add constraint chk_cep_length check (char_length(cep) = 8);
+
+
+
+alter table produto
+add constraint chk_largura_nonnegative check (largura >= 0),
+add constraint chk_altura_nonnegative check (altura >= 0),
+add constraint chk_profundidade_nonnegative check (profundidade >= 0);
